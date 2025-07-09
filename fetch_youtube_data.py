@@ -1,6 +1,6 @@
 import os
 import csv
-from datetime import datetime
+from datetime import datetime, timezone
 from dateutil import parser as date_parser
 from googleapiclient.discovery import build
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled, NoTranscriptFound
@@ -99,8 +99,8 @@ def save_output(videos, output_dir='output'):
 
 
 def main(channel_handle, start_date, end_date):
-    start_dt = datetime.strptime(start_date, '%Y-%m-%d')
-    end_dt = datetime.strptime(end_date, '%Y-%m-%d')
+    start_dt = datetime.strptime(start_date, '%Y-%m-%d').replace(tzinfo=timezone.utc)
+    end_dt = datetime.strptime(end_date, '%Y-%m-%d').replace(tzinfo=timezone.utc)
     youtube = get_service()
     channel_id = search_channel_id(youtube, channel_handle)
     playlist_id = get_uploads_playlist_id(youtube, channel_id)
