@@ -1,0 +1,12 @@
+python fetch_youtube_data.py --handle @KamFIT24 --start 2025-04-01 --end 2025-07-01
+
+
+// for Czech language
+
+def fetch_transcript(video_id):
+    try:
+        transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['cs'])
+        text = '\n'.join([entry['text'] for entry in transcript])
+        return text
+    except (TranscriptsDisabled, NoTranscriptFound):
+        return ''
