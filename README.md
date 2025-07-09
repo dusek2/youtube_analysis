@@ -7,6 +7,8 @@ Analyzes youtube channel and recommends next content ideas.
 
 Use `fetch_youtube_data.py` to download video metadata and transcripts for a YouTube channel. The script requires a YouTube Data API key provided via the `YOUTUBE_API_KEY` environment variable.
 
+The script now outputs progress messages using Python's built‑in logging module so you can see what step is running.
+
 ### Installation
 
 ```bash
