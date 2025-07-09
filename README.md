@@ -1,5 +1,7 @@
+# Testing OpenAI Codex on this Project
+
 # youtube_analysis
-Analysis youtube channel and recomends next content ideas.
+Analyzes youtube channel and recommends next content ideas.
 
 ## Fetching Channel Data
 
